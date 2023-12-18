@@ -1,0 +1,30 @@
+[
+    {
+        "name": "T-Shirt",
+        "qty": 1,
+        "price": 350,
+        "category": "Clothing",
+        "currency": "THB"
+    },
+    {
+        "name": "Hoodie",
+        "qty": 1,
+        "price": 700,
+        "category": "Clothing",
+        "currency": "THB"
+    },
+    {
+        "name": "Watch",
+        "qty": 1,
+        "price": 850,
+        "category": "Accessory",
+        "currency": "THB"
+    },
+    {
+        "name": "Phone",
+        "qty": 1,
+        "price": 30000,
+        "category": "Electronic",
+        "currency": "THB"
+    }
+]
