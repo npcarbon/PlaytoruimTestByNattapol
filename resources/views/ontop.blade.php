@@ -20,7 +20,7 @@
             <option value="2">Percentage by item category</option>
         </select>
         =
-        <input type="text" name="amount" id="amount">
+        <input type="text" name="amount" id="amount" onkeypress="return onlyNumberKey(event)">
 
         <select name="category" id="category" style="display:none;">
             @foreach ($categories as $cate => $value)
@@ -37,6 +37,13 @@
     </div>
     <h3>Net price = <input type="text" id="net_price" disabled> THB</h3>
     <script>
+        function onlyNumberKey(evt) {
+            let ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+
         function showCase() {
             let dc_type = document.getElementById('type').value;
             let dc_amount = document.getElementById('amount').value;

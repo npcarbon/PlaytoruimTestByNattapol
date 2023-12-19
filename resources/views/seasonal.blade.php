@@ -17,9 +17,9 @@
 
     <form action="" method="post">
         Discount
-        <input type="text" name="dc_amount" id="dc_amount"> THB
+        <input type="text" name="dc_amount" id="dc_amount" onkeypress="return onlyNumberKey(event)"> THB
         at every
-        <input type="text" name="every_amount" id="every_amount"> THB
+        <input type="text" name="every_amount" id="every_amount" onkeypress="return onlyNumberKey(event)"> THB
         <button type="button" onclick="calculate({{ $net_price }})">Submit</button>
     </form>
 
@@ -32,6 +32,13 @@
     <h3>Net price = <input type="text" id="net_price" disabled> THB</h3>
 
     <script>
+        function onlyNumberKey(evt) {
+            let ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+
         function calculate(price) {
             let dc_amount = document.getElementById('dc_amount').value;
             let amount = document.getElementById('every_amount').value;

@@ -20,7 +20,7 @@
             <option value="2">Percentage</option>
         </select>
         =
-        <input type="text" name="amount" id="amount">
+        <input type="text" name="amount" id="amount" onkeypress="return onlyNumberKey(event)">
         <button type="button" onclick="calculate({{ $net_price }})">Submit</button>
     </form>
     <p id="cuation_alert" style="color: red;font-size:12px; display:none;">Can not discount with PERCENATGE more than 100%
@@ -31,6 +31,13 @@
     </div>
     <h3>Net price = <input type="text" id="net_price" disabled> THB</h3>
     <script>
+        function onlyNumberKey(evt) {
+            let ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+
         function calculate(price) {
             let dc_type = document.getElementById('type').value;
             let amount = document.getElementById('amount').value;
